@@ -1,4 +1,4 @@
-import { Game } from "../hooks/useGame";
+import { Game } from "../hooks/useGames";
 import { Card, CardBody, HStack, Heading, Image } from "@chakra-ui/react";
 import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
@@ -10,10 +10,10 @@ interface Props {
 
 export default function GameCard({ game }: Props) {
   return (
-    <Card height={330}>
+    <Card>
       <Image src={getCroppedImageUrl(game.background_image)} />
       <CardBody>
-        <Heading fontSize={22}>{game.name}</Heading>
+        <Heading fontSize={17}>{game.name}</Heading>
         <HStack marginTop={1} justifyContent={"space-between"}>
           <PlatformIconList
             platforms={game.parent_platforms.map((p) => p.platform)}
