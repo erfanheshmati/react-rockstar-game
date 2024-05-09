@@ -10,11 +10,13 @@ interface Props {
 
 export default function GameCard({ game }: Props) {
   return (
-    <Card>
+    <Card height={"fit-content"}>
       <Image src={getCroppedImageUrl(game.background_image)} />
       <CardBody>
-        <Heading fontSize={17}>{game.name}</Heading>
-        <HStack marginTop={1} justifyContent={"space-between"}>
+        <Heading fontSize={20} noOfLines={1}>
+          {game.name}
+        </Heading>
+        <HStack marginTop={2} justifyContent={"space-between"}>
           <PlatformIconList
             platforms={game.parent_platforms.map((p) => p.platform)}
           />

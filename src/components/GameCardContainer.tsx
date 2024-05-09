@@ -7,7 +7,7 @@ interface Props {
 
 export default function GameCardContainer({ children }: Props) {
   return (
-    <Box width={300} boxShadow="md">
+    <Box boxShadow="lg" height={"fit-content"}>
       {children}
     </Box>
   );

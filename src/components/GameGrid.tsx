@@ -1,4 +1,4 @@
-import { SimpleGrid, Text } from "@chakra-ui/react";
+import { SimpleGrid, Text, useToast } from "@chakra-ui/react";
 import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
@@ -6,11 +6,16 @@ import GameCardContainer from "./GameCardContainer";
 
 export default function GameGrid() {
   const { data, error, isLoading } = useGames();
-  const skeletons = [1, 2, 3, 4, 5, 6];
+  const skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
+
+  const toast = useToast();
+  const id: string = "";
 
   return (
     <>
-      {error && <Text>{error}</Text>}
+      {error && !toast.isActive(id)
+        ? toast({ id, title: `${error}`, status: "error", position: "top" })
+        : ""}
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
         spacing={10}
