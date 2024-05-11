@@ -10,8 +10,11 @@ interface Props {
 
 export default function GameCard({ game }: Props) {
   return (
-    <Card height={"fit-content"}>
-      <Image src={getCroppedImageUrl(game.background_image)} />
+    <Card height={"fit-content"} borderRadius={10}>
+      <Image
+        src={getCroppedImageUrl(game.background_image)}
+        borderTopRadius={10}
+      />
       <CardBody>
         <Heading fontSize={20} noOfLines={1}>
           {game.name}
