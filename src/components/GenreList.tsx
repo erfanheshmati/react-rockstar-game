@@ -27,34 +27,37 @@ export default function GenreList({ selectedGenre, onSelectedGenre }: Props) {
   }
 
   return (
-    <List paddingTop={8}>
-      <Text fontSize={"22"} fontWeight={500} paddingX={5} marginBottom={6}>
-        Game Genres
-      </Text>
-      {isLoading &&
-        skeletons.map((skeleton) => <GameGenreSkeleton key={skeleton} />)}
-      {data.map((genre) => (
-        <ListItem key={genre.id} paddingY={2} paddingX={6}>
-          <HStack>
-            <Image
-              src={getCroppedImageUrl(genre.image_background)}
-              boxSize={38}
-              borderRadius={8}
-            />
-            <Button
-              fontSize={14}
-              fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
-              color={genre.id === selectedGenre?.id ? "red" : ""}
-              variant="link"
-              onClick={() => onSelectedGenre(genre)}
-            >
-              {genre.name.length > 15
-                ? genre.name.substr(0, 15) + "..."
-                : genre.name}
-            </Button>
-          </HStack>
-        </ListItem>
-      ))}
-    </List>
+    <>
+      <Heading size={"lg"} paddingX={5} marginTop={7}>
+        Genres
+      </Heading>
+      <List paddingTop={6}>
+        {isLoading &&
+          skeletons.map((skeleton) => <GameGenreSkeleton key={skeleton} />)}
+        {data.map((genre) => (
+          <ListItem key={genre.id} paddingY={2} paddingX={5}>
+            <HStack>
+              <Image
+                src={getCroppedImageUrl(genre.image_background)}
+                boxSize={38}
+                borderRadius={"50%"}
+                objectFit={"cover"}
+              />
+              <Button
+                fontSize={15}
+                fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
+                color={genre.id === selectedGenre?.id ? "orange" : ""}
+                variant="link"
+                onClick={() => onSelectedGenre(genre)}
+              >
+                {genre.name.length > 18
+                  ? genre.name.substr(0, 18) + "..."
+                  : genre.name}
+              </Button>
+            </HStack>
+          </ListItem>
+        ))}
+      </List>
+    </>
   );
 }
