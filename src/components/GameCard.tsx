@@ -16,15 +16,15 @@ export default function GameCard({ game }: Props) {
         borderTopRadius={10}
       />
       <CardBody>
-        <Heading fontSize={20} noOfLines={1}>
-          {game.name}
-        </Heading>
-        <HStack marginTop={2} justifyContent={"space-between"}>
+        <HStack justifyContent={"space-between"}>
           <PlatformIconList
             platforms={game.parent_platforms.map((p) => p.platform)}
           />
           <CriticScore score={game.metacritic} />
         </HStack>
+        <Heading fontSize={20} noOfLines={1} marginTop={2}>
+          {game.name}
+        </Heading>
       </CardBody>
     </Card>
   );
