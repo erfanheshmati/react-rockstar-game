@@ -17,7 +17,9 @@ interface Props {
 }
 
 export default function GenreList({ selectedGenre, onSelectedGenre }: Props) {
-  const { data, isLoading } = useGenres();
+  const { data, error, isLoading } = useGenres();
+
+  if (error) return null;
 
   let skeletons = [];
   for (let i = 1; i <= data.length; i++) {
@@ -40,7 +42,7 @@ export default function GenreList({ selectedGenre, onSelectedGenre }: Props) {
               borderRadius={8}
             />
             <Button
-              fontSize={15}
+              fontSize={14}
               fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
               color={genre.id === selectedGenre?.id ? "red" : ""}
               variant="link"
