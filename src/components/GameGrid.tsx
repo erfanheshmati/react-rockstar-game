@@ -11,9 +11,11 @@ interface Props {
 
 export default function GameGrid({ selectedGenre }: Props) {
   const { data, error, isLoading } = useGames(selectedGenre);
-  const skeletons = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-  ];
+
+  let skeletons = [];
+  for (let i = 1; i <= data.length; i++) {
+    skeletons.push(i);
+  }
 
   const toast = useToast();
   const id: string = "";

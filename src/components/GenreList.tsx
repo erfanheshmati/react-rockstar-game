@@ -5,13 +5,16 @@ import GameGenreSkeleton from "./GameGenreSkeleton";
 
 interface Props {
   onSelectedGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-export default function GenreList({ onSelectedGenre }: Props) {
+export default function GenreList({ selectedGenre, onSelectedGenre }: Props) {
   const { data, isLoading } = useGenres();
-  const skeletons = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-  ];
+
+  let skeletons = [];
+  for (let i = 1; i <= data.length; i++) {
+    skeletons.push(i);
+  }
 
   return (
     <List paddingTop={8}>
@@ -25,8 +28,16 @@ export default function GenreList({ onSelectedGenre }: Props) {
               boxSize={38}
               borderRadius={8}
             />
-            <Button variant="link" onClick={() => onSelectedGenre(genre)}>
-              {genre.name}
+            <Button
+              fontSize={15}
+              fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
+              color={genre.id === selectedGenre?.id ? "red" : ""}
+              variant="link"
+              onClick={() => onSelectedGenre(genre)}
+            >
+              {genre.name.length > 15
+                ? genre.name.substr(0, 15) + "..."
+                : genre.name}
             </Button>
           </HStack>
         </ListItem>
