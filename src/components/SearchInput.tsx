@@ -16,10 +16,7 @@ export default function SearchInput({ onSearch }: Props) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <InputGroup
-        width={{ sm: "100%", md: "70%", lg: "60%", xl: "50%" }}
-        marginX={"auto"}
-      >
+      <InputGroup width={{ sm: "100%", lg: "60%", xl: "40%" }} marginX={"auto"}>
         <InputLeftElement children={<BsSearch />} />
         <Input
           borderRadius={20}

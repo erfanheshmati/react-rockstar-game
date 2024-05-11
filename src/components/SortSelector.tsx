@@ -29,7 +29,7 @@ export default function SortSelector({
         as={Button}
         rightIcon={<BsChevronDown />}
         fontSize={14}
-        marginTop={7}
+        marginTop={6}
       >
         {currentSortOrder?.label || "Order by"}
       </MenuButton>

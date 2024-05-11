@@ -22,8 +22,8 @@ export default function PlatformSelector({
         as={Button}
         rightIcon={<BsChevronDown />}
         fontSize={14}
-        marginLeft={9}
-        marginTop={7}
+        marginLeft={10}
+        marginTop={6}
       >
         {selectedPlatform?.name || "Platforms"}
       </MenuButton>
