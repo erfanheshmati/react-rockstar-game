@@ -8,7 +8,7 @@ import {
 
 export default function GameGenreSkeleton() {
   return (
-    <List paddingTop={8} borderRight={"1px solid gray"}>
+    <List>
       <ListItem paddingY={2} paddingX={5}>
         <HStack>
           <SkeletonCircle size="10" />

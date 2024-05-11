@@ -27,8 +27,8 @@ export default function GenreList({ selectedGenre, onSelectedGenre }: Props) {
   }
 
   return (
-    <List paddingTop={8} borderRight={"1px solid gray"}>
-      <Text fontSize={"20"} paddingX={5} marginBottom={4}>
+    <List paddingTop={8}>
+      <Text fontSize={"20"} paddingX={5} marginBottom={6}>
         Game Genres
       </Text>
       {isLoading &&
