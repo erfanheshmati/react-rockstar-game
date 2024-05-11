@@ -21,12 +21,13 @@ export default function PlatformSelector({
       <MenuButton
         as={Button}
         rightIcon={<BsChevronDown />}
-        marginLeft={10}
-        marginTop={10}
+        fontSize={14}
+        marginLeft={9}
+        marginTop={7}
       >
         {selectedPlatform?.name || "Platforms"}
       </MenuButton>
-      <MenuList>
+      <MenuList fontSize={14}>
         {data.map((platform) => (
           <MenuItem
             key={platform.id}

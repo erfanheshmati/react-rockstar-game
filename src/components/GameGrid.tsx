@@ -28,7 +28,8 @@ export default function GameGrid({ gameQuery }: Props) {
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
         spacing={10}
-        padding={10}
+        paddingY={5}
+        paddingX={10}
       >
         {isLoading &&
           skeletons.map((skeleton) => (

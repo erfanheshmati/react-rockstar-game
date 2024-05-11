@@ -1,4 +1,12 @@
-import { Button, HStack, Image, List, ListItem } from "@chakra-ui/react";
+import {
+  Button,
+  HStack,
+  Heading,
+  Image,
+  List,
+  ListItem,
+  Text,
+} from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
 import GameGenreSkeleton from "./GameGenreSkeleton";
@@ -17,11 +25,14 @@ export default function GenreList({ selectedGenre, onSelectedGenre }: Props) {
   }
 
   return (
-    <List paddingTop={8}>
+    <List paddingTop={8} borderRight={"1px solid gray"}>
+      <Text fontSize={"20"} paddingX={5} marginBottom={4}>
+        Game Genres
+      </Text>
       {isLoading &&
         skeletons.map((skeleton) => <GameGenreSkeleton key={skeleton} />)}
       {data.map((genre) => (
-        <ListItem key={genre.id} paddingY={2} paddingX={5}>
+        <ListItem key={genre.id} paddingY={2} paddingX={6}>
           <HStack>
             <Image
               src={getCroppedImageUrl(genre.image_background)}

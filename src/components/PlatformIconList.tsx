@@ -32,7 +32,7 @@ export default function PlatformIconList({ platforms }: Props) {
   };
 
   return (
-    <HStack marginY={3}>
+    <HStack marginY={3} overflow={"hidden"}>
       {platforms.map((platform) => (
         <Icon
           key={platform.id}
