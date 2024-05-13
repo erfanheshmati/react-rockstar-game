@@ -1,4 +1,4 @@
-import { HStack, Hide, Image, Show, Text } from "@chakra-ui/react";
+import { HStack, Hide, Image, Link, Show, Text } from "@chakra-ui/react";
 import ColorModeSwitch from "./ColorModeSwitch";
 import SearchInput from "./SearchInput";
 
@@ -12,17 +12,21 @@ export default function Navbar({ onSearch }: Props) {
   return (
     <>
       <HStack padding={4} justifyContent={"space-between"}>
-        <HStack>
-          <Image src={logo} boxSize={50} borderRadius={10} />
-          <Text
-            fontFamily={"-moz-initial"}
-            fontSize={"x-large"}
-            fontWeight={600}
-            whiteSpace={"nowrap"}
-          >
-            Rockstar Game
-          </Text>
-        </HStack>
+        <Link href={"#"} style={{ textDecoration: "none" }}>
+          <HStack>
+            <Image src={logo} boxSize={50} borderRadius={10} />
+            <Show above="sm">
+              <Text
+                fontFamily={"-moz-initial"}
+                fontSize={"x-large"}
+                fontWeight={600}
+                whiteSpace={"nowrap"}
+              >
+                Rockstar Game
+              </Text>
+            </Show>
+          </HStack>
+        </Link>
         <Show above="lg">
           <SearchInput onSearch={onSearch} />
         </Show>

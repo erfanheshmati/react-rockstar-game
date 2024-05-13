@@ -31,7 +31,7 @@ export default function GenreList({ selectedGenre, onSelectedGenre }: Props) {
       <Heading size={"lg"} paddingX={5} marginTop={7}>
         Genres
       </Heading>
-      <List paddingTop={6}>
+      <List paddingY={5}>
         {isLoading &&
           skeletons.map((skeleton) => <GameGenreSkeleton key={skeleton} />)}
         {data.map((genre) => (
@@ -50,8 +50,8 @@ export default function GenreList({ selectedGenre, onSelectedGenre }: Props) {
                 variant="link"
                 onClick={() => onSelectedGenre(genre)}
               >
-                {genre.name.length > 18
-                  ? genre.name.substr(0, 18) + "..."
+                {genre.name.length > 15
+                  ? genre.name.substr(0, 15) + "..."
                   : genre.name}
               </Button>
             </HStack>
